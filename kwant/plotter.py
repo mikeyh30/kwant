@@ -1522,6 +1522,18 @@ def _plot_matplotlib(sys, num_lead_cells, unit,
     m = (min_ + max_) / 2
     if dim == 2:
         w = np.max([(max_ - min_) / 2, (reflen, reflen)], axis=0)
+        # print((max_ - min_) / 2, 'half max - min')
+        # print((reflen, reflen), 'reflen')
+        # print(w, 'w')
+        # print(m, 'm')
+        # print(min_, 'min')
+        # print(max_, 'max')
+        ax.set_xlim(min_[0]-(w[0]/20),max_[0]+(w[0]/20))
+        ax.set_ylim(min_[1]-(w[0]/20),max_[1]+(w[0]/20))
+        # ax.set_xlim(min_[0],max_[0])
+        # ax.set_ylim(min_[1],max_[1])
+        # ax.set_xlim(m-w)
+        # ax.set_ylim(m-w)
         ax.update_datalim((m - w, m + w))
         ax.autoscale_view(tight=True)
     else:
